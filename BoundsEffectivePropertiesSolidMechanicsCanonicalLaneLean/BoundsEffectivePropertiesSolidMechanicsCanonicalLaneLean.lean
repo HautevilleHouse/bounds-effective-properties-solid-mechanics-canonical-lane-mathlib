@@ -1,0 +1,21 @@
+import BoundsEffectivePropertiesSolidMechanicsCanonicalLaneLean.AdmissibleClass
+import BoundsEffectivePropertiesSolidMechanicsCanonicalLaneLean.BridgeLemmas
+import BoundsEffectivePropertiesSolidMechanicsCanonicalLaneLean.GateLemmas
+import BoundsEffectivePropertiesSolidMechanicsCanonicalLaneLean.EffectiveElasticModuli
+import BoundsEffectivePropertiesSolidMechanicsCanonicalLaneLean.HashinShtrikmanBounds
+import BoundsEffectivePropertiesSolidMechanicsCanonicalLaneLean.VoigtReussBounds
+import BoundsEffectivePropertiesSolidMechanicsCanonicalLaneLean.MoriTanakaEstimates
+import BoundsEffectivePropertiesSolidMechanicsCanonicalLaneLean.SelfConsistentScheme
+
+namespace HautevilleHouse
+namespace BoundsEffectivePropertiesSolidMechanicsCanonicalLaneLean
+
+def ConstrainedBoundsEffectivePropertiesClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_bounds_effective_properties_endgame (A : AdmissibleClass) :
+    ConstrainedBoundsEffectivePropertiesClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end BoundsEffectivePropertiesSolidMechanicsCanonicalLaneLean
+end HautevilleHouse
